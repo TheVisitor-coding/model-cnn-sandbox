@@ -1,0 +1,16 @@
+version: '3'
+services:
+  cnn:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: cnn_image
+    restart: always
+    ports:
+      - "5000:5000"
+    container_name: cnn-test
+    working_dir: /app
+    volumes:
+      - .:/app/
+    command: /bin/sh -c "tail -f /dev/null"  # Ajoutez une commande pour maintenir le conteneur actif
+
